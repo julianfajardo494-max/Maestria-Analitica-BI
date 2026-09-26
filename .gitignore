@@ -1,0 +1,20 @@
+# Python & Entornos Virtuales
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Jupyter Checkpoints
+.ipynb_checkpoints
+
+# Archivos de Datos Pesados e Imágenes Médicas (no se suben a Git)
+*.nii
+*.nii.gz
+*.dcm
+*.zip
+*.parquet
+*.csv
+
+# Configuración de Editores
+.vscode/
+.idea/
