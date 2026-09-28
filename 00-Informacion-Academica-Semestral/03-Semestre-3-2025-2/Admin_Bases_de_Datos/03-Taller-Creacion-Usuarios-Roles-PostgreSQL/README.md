@@ -50,7 +50,3 @@ PGPASSWORD=adminpassword psql -h 127.0.0.1 -p 5434 -U postgres -d postgres -f 00
 - **Estructura Escalable**: Administración simplificada mediante grupos en lugar de asignaciones individuales.
 - **Auditoría Transparente**: Trazabilidad completa de privilegios concedidos en el motor PostgreSQL.
 - **Eficiencia en Despliegue**: Uso de un script maestro (`00_ejecutar_todo.sql`) para la inicialización y construcción automatizada de todo el entorno y la base de datos `empresa_db`.
-
-```
-
-```
