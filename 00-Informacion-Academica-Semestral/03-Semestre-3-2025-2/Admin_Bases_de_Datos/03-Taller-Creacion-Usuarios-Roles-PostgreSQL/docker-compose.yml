@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres_taller:
+    image: postgres:15-alpine
+    container_name: postgres_roles_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: adminpassword
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata_taller:/var/lib/postgresql/data
+
+volumes:
+  pgdata_taller:

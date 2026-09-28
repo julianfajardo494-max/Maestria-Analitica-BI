@@ -1,8 +1,8 @@
 # 🗄️ Taller Práctico: Gestión de Usuarios, Roles y Permisos en PostgreSQL
 
-**Asignatura**: Administración de Bases de Datos (Semestre III) [cite: 41, 44]  
-**Autor**: Julián Andrés Fajardo Salcedo | M.Sc.(c) Analítica e Inteligencia de Negocios [cite: 1, 161]  
-**Tecnología**: PostgreSQL 15+ / SQL
+**Asignatura**: Administración de Bases de Datos (Semestre III)
+**Autor**: Julián Andrés Fajardo Salcedo | M.Sc.(c) Analítica e Inteligencia de Negocios
+**Tecnología**: PostgreSQL 15+ / SQL / Docker
 
 ---
 
@@ -16,14 +16,41 @@ Diseñar e implementar una arquitectura de seguridad basada en **Roles y Herenci
 
 ## ⚙️ Acción (A)
 
-1. **Configuración de Roles Base y Grupos**: Creación de grupos gerenciales, desarrolladores, analistas y lectores [cite: 139].
-2. **Control de Acceso Granular**: Asignación de permisos a nivel de Base de Datos, Esquema, Tablas y Secuencias [cite: 135, 136, 137].
-3. **Mecanismos de Herencia**: Asociación de usuarios individuales a grupos de permisos estandarizados (`GRANT grupo TO usuario`) [cite: 138, 140].
-4. **Consultas de Auditoría**: Implementación de scripts de monitoreo sobre las tablas del sistema `pg_roles`, `pg_auth_members` e `information_schema` [cite: 143, 144].
+1. **Despliegue de Infraestructura**: Configuración del motor PostgreSQL a través de contenedores Docker (`docker-compose.yml`) asegurando un entorno aislado.
+2. **Configuración de Roles Base y Grupos**: Creación de grupos gerenciales, desarrolladores, analistas y lectores.
+3. **Control de Acceso Granular**: Asignación de permisos a nivel de Base de Datos, Esquema, Tablas y Secuencias.
+4. **Mecanismos de Herencia**: Asociación de usuarios individuales a grupos de permisos estandarizados (`GRANT grupo TO usuario`).
+5. **Consultas de Auditoría**: Implementación de scripts de monitoreo sobre las tablas del sistema `pg_roles`, `pg_auth_members` e `information_schema`.
+
+---
+
+## 🚀 Guía de Despliegue Rápido
+
+Sigue estos pasos en tu terminal para poner en marcha el contenedor y poblar la base de datos:
+
+### 1. Levantar el motor con Docker
+
+Inicia el contenedor de PostgreSQL en segundo plano:
+
+```bash
+docker-compose up -d
+```
+
+### 2. Ejecutar el script maestro de automatización
+
+Despliega la base de datos empresa_db, roles, tablas y permisos ejecutando el script maestro:
+
+```bash
+PGPASSWORD=adminpassword psql -h 127.0.0.1 -p 5434 -U postgres -d postgres -f 00_ejecutar_todo.sql
+```
 
 ## 📈 Resultados (R)
 
-- **Seguridad Garantizada**: Aislamiento efectivo entre entornos de lectura, analítica y administración [cite: 140, 141].
+- **Seguridad Garantizada**: Aislamiento efectivo entre entornos de lectura, analítica y administración.
 - **Estructura Escalable**: Administración simplificada mediante grupos en lugar de asignaciones individuales.
-- **Auditoría Transparente**: Trazabilidad completa de privilegios concedidos en el motor PostgreSQL [cite: 143].
-  🚀 Paso 3: Subir los cambios a GitHub desde la terminal de VS Code
+- **Auditoría Transparente**: Trazabilidad completa de privilegios concedidos en el motor PostgreSQL.
+- **Eficiencia en Despliegue**: Uso de un script maestro (`00_ejecutar_todo.sql`) para la inicialización y construcción automatizada de todo el entorno y la base de datos `empresa_db`.
+
+```
+
+```
