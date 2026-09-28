@@ -5,6 +5,11 @@
 -- Rol simple sin login
 CREATE ROLE desarrollador;
 
+-- Roles solicitados para el entorno web
+CREATE ROLE web_app NOLOGIN;  -- Sin login, exclusivo para la aplicación
+CREATE ROLE web_user WITH LOGIN PASSWORD 'user123';
+CREATE ROLE web_admin WITH LOGIN PASSWORD 'adminweb123';
+
 -- Roles con login (usuarios del sistema)
 CREATE ROLE usuario_app WITH LOGIN PASSWORD 'password123';
 

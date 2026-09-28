@@ -3,10 +3,10 @@
 -- ==========================================
 
 -- 1. Privilegios a nivel de Base de Datos
-GRANT CONNECT ON DATABASE empresa_db TO gerentes, desarrolladores, analistas, lectores;
+GRANT CONNECT ON DATABASE empresa_db TO gerentes, desarrolladores, analistas, lectores, web_user, web_admin;
 
 -- 2. Privilegios a nivel de Esquema
-GRANT USAGE ON SCHEMA public TO gerentes, desarrolladores, analistas, lectores;
+GRANT USAGE ON SCHEMA public TO gerentes, desarrolladores, analistas, lectores, web_user, web_admin;
 
 -- 3. Privilegios específicos por grupo (Nivel Tabla y Secuencia)
 
@@ -21,8 +21,12 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO desarrolladores;
 -- Analistas: solo lectura/escritura en tablas específicas
 GRANT SELECT, INSERT, UPDATE ON empleados, departamentos TO analistas;
 
--- Lectores: solo lectura en todo
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO lectores;
+-- Lectores y web_user: solo lectura en todo
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO lectores, web_user;
+
+-- web_admin: privilegios amplios de gestión operativa
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO web_admin;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO web_admin;
 
 -- 4. Ejemplos de permisos a nivel de Columna (Granularidad fina)
 GRANT SELECT (id, nombre, email) ON empleados TO usuario_app;
