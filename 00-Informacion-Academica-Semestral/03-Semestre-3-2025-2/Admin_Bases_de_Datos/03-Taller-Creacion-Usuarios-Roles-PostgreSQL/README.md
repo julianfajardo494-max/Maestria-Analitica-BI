@@ -47,7 +47,7 @@ Inicia el contenedor de PostgreSQL en segundo plano:
 
 ````bash
 docker-compose up -d
-
+````
 
 ### 2. Ejecutar el script maestro de automatización
 
