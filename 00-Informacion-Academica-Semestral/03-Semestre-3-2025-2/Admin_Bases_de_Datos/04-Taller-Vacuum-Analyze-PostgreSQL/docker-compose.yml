@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres_vacuum:
+    image: postgres:15-alpine
+    container_name: postgres_vacuum_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_DB: taller_vacuum
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata_vacuum:/var/lib/postgresql/data
+    networks:
+      - vacuum_net
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_vacuum_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_vacuum_data:/var/lib/pgadmin
+    networks:
+      - vacuum_net
+    depends_on:
+      - postgres_vacuum
+
+networks:
+  vacuum_net:
+    driver: bridge
+
+volumes:
+  pgdata_vacuum:
+  pgadmin_vacuum_data:
