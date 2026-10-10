@@ -65,5 +65,5 @@ Diseñar, implementar y validar un laboratorio práctico interactivo que permita
 ├── 📄 backup_taller_test.sql          # Respaldo completo generado (Esquema + Datos)
 ├── 📄 esquema_taller_test.sql         # Respaldo de estructura (DDL)
 ├── 📄 datos_taller_test.sql           # Respaldo de registros (DML)
-└── 📄 [se quitó el vínculo sospechoso]                       # Documentación del laboratorio (Metodología STAR)
+└── 📄 README.md                       # Documentación del laboratorio (Metodología STAR)
 ```
