@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres_psql_basics:
+    image: postgres:15-alpine
+    container_name: postgres_psql_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_DB: postgres
+    ports:
+      - "5435:5432"
+    volumes:
+      - pgdata_psql_basics:/var/lib/postgresql/data
+    networks:
+      - psql_net
+
+  pgadmin_psql_basics:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_psql_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5051:80"
+    volumes:
+      - pgadmin_psql_data:/var/lib/pgadmin
+    networks:
+      - psql_net
+
+volumes:
+  pgdata_psql_basics:
+  pgadmin_psql_data:
+
+networks:
+  psql_net:
+    driver: bridge
