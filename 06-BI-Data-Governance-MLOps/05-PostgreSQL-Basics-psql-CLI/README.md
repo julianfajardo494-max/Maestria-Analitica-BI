@@ -2,7 +2,7 @@
 
 **Asignatura**: Administración de Bases de Datos (Semestre III - Univalle)  
 **Módulo Portafolio**: `06-BI-Data-Governance-MLOps/05-PostgreSQL-Basics-psql-CLI/`  
-**Autor**: Julián Andrés Fajardo Salcedo | [se quitó el vínculo sospechoso].(c) Analítica e Inteligencia de Negocios  
+**Autor**: Julián Andrés Fajardo Salcedo | .(c) Analítica e Inteligencia de Negocios  
 **Stack Tecnológico**: PostgreSQL 15 | Docker Compose | pgAdmin 4 | `psql` CLI | `pg_dump` | Git Bash
 
 ---
