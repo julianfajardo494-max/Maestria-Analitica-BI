@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres_optimizacion:
+    image: postgres:17-alpine
+    container_name: postgres_optimizacion_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: db_optimizacion
+    ports:
+      - "5436:5432"
+    volumes:
+      - pgdata_optimizacion:/var/lib/postgresql/data
+    networks:
+      - optimizacion_net
+
+  pgadmin_optimizacion:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_optimizacion_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5052:80"
+    depends_on:
+      - postgres_optimizacion
+    networks:
+      - optimizacion_net
+
+networks:
+  optimizacion_net:
+    driver: bridge
+
+volumes:
+  pgdata_optimizacion:
+    driver: local
