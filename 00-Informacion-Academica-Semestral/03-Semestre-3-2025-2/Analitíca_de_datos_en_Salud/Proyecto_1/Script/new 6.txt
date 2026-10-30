@@ -1,0 +1,193 @@
+🚀 Sigue estos pasos exactos:
+Copia este comando completo y pégalo en tu consola de comandos (CMD):
+
+Bash
+psql -h db.mlukxxjqlvdlgcilfwao.supabase.co -p 5432 -U postgres -d postgres -f "D:\Maestria-Analitica-BI\00-Informacion-Academica-Semestral\03-Semestre-3-2025-2\Analitíca_de_datos_en_Salud\Proyecto_1\Script\bodega_23_10_2026"
+Presiona Enter.
+
+La consola te pedirá el campo de contraseña (Password for user postgres:).
+
+Escribe exactamente tu contraseña:
+
+Plaintext
+14638453Univalle
+(Nota: Por seguridad, mientras escribes la contraseña no se va a ver nada en pantalla, ni siquiera asteriscos. Es totalmente normal. Escríbela completa y presiona Enter).
+
+¡Prueba pegando ese comando y me cuentas qué te responde la consola!
+
+
+
+
+Siguiente paso: Conectar Looker Studio
+Ya con tu base de datos en línea y tus 13 tablas cargadas con éxito, puedes irte directo a Looker Studio para terminar tu enlace:
+
+Abre Looker Studio y selecciona el conector de PostgreSQL.
+
+Rellena los datos de acceso tomando la información directamente de este panel de Supabase:
+
+Nombre de host o IP: db.mlukxxjqlvdlgcilfwao.supabase.co (la parte de la URL de tu proyecto después del https://)
+
+Puerto: 5432
+
+Base de datos: postgres
+
+Nombre de usuario: postgres
+
+Contraseña: 14638453Univalle
+
+Dale a Autenticar y selecciona la tabla de hechos o dimensiones que quieras graficar.
+
+¡Ya pasamos la parte más difícil de la migración y la subida de datos! Cuéntame si Looker Studio ya te deja ver las tablas de inmediato.
+
+
+
+
+Abre Looker Studio y selecciona el conector de PostgreSQL.
+
+Rellena los datos de acceso tomando la información directamente de este panel de Supabase:
+
+Nombre de host o IP: db.mlukxxjqlvdlgcilfwao.supabase.co (la parte de la URL de tu proyecto después del https://)
+
+Puerto: 5432
+
+Base de datos: postgres
+
+Nombre de usuario: postgres
+
+Contraseña: 14638453Univalle
+
+
+
+CREATE OR REPLACE VIEW vw_tiempos_espera_oportunidad AS
+SELECT 
+    -- Identificadores y dimensiones básicas reales
+    h.key_hecho_atencion,
+    h.key_dim_ips,
+    h.tiempo_espera_dias,
+    h.tiempo_espera_horas,
+    h.tiempo_espera_minutos,
+    h.costo,
+    
+    -- Fechas desde la tabla transaccional de servicios relacionada
+    t.fecha_solicitud,
+    t.fecha_atencion,
+    
+    -- Cálculo directo de días de espera utilizando los campos de la tabla transaccional
+    EXTRACT(EPOCH FROM (t.fecha_atencion - t.fecha_solicitud)) / 86400 AS dias_espera_calculados
+
+FROM hecho_atencion h
+LEFT JOIN trans_servicio t ON h.key_trans_servicio = t.key_trans_servicio;
+
+
+
+CREATE OR REPLACE VIEW vw_analitica_ips_demografia AS
+SELECT 
+    -- Identificadores y métricas base
+    h.key_hecho_atencion,
+    h.costo,
+    h.tiempo_espera_dias,
+    
+    -- Información de la IPS / Centro Hospitalario
+    i.nombre AS nombre_ips,
+    i.tipo_ips,
+    i.municipio AS municipio_ips,
+    i.departamento AS departamento_ips,
+    i.nivel AS nivel_ips,
+    
+    -- Información Demográfica del Paciente
+    d.sexo,
+    d.edad,
+    d.estracto,
+    d.tipo_usuario,
+    d.empresa,
+    d.municipio AS municipio_paciente,
+    d.departamento AS departamento_paciente,
+    
+    -- Diagnóstico asociado
+    dg.diagnostico,
+    dg.fecha_diagnostico
+
+FROM hecho_atencion h
+LEFT JOIN dim_ips i ON h.key_dim_ips = i.key_dim_ips
+LEFT JOIN dim_demografia d ON h.key_dim_demo = d.key_dim_demo
+LEFT JOIN dim_diag dg ON h.key_dim_diag = dg.key_dim_diag;
+
+
+💊 Vista 1: Farmacología y Medicamentos Más Formulados
+Esta vista une los registros de entrega de medicamentos con su respectivo catálogo para que puedas identificar cuáles son los fármacos más recetados y sus costos o presentaciones.
+
+Ve al SQL Editor en Supabase y haz clic en New query.
+
+Pega el siguiente código y presiona Run:
+
+SQL
+CREATE OR REPLACE VIEW vw_farmacologia_entregas AS
+SELECT 
+    h.key_hecho_entrega,
+    h.codigo_formula,
+    h.precio AS precio_entrega,
+    m.codigo AS codigo_medicamento,
+    m.nombre AS nombre_medicamento,
+    m.forma,
+    m.presentacion,
+    m.laboratorio,
+    m.tipo AS tipo_medicamento
+FROM hecho_entrega h
+LEFT JOIN dim_medicamentos m ON h.key_dim_medicamentos = m.key_dim_medicamentos;
+📅 Vista 2: Estacionalidad y Demanda Temporal
+Esta vista conecta la atención médica con tu dimensión de fechas (dim_fecha), permitiéndote analizar la demanda según el año, mes, días de la semana, fines de semana o si la atención ocurrió en días festivos (vacaciones, navidad, semana santa).
+
+Abre otra pestaña o borra la anterior en el SQL Editor de Supabase.
+
+Pega el siguiente código y presiona Run:
+
+SQL
+CREATE OR REPLACE VIEW vw_tiempos_espera_oportunidad AS
+SELECT 
+    h.key_hecho_atencion,
+    h.key_dim_ips,
+    h.key_dim_servicio,
+    s.descripcion AS nombre_servicio,
+    h.costo,
+    h.fecha_solicitud,
+    h.fecha_atencion,
+    h.tiempo_espera_dias,
+    h.tiempo_espera_horas,
+    h.tiempo_espera_minutos,
+    h.dias_espera_calculados
+FROM hecho_atencion h
+LEFT JOIN dim_servicios s ON h.key_dim_servicio = s.key_dim_servicio;
+
+
+¡Excelente avance, Julián! Ya tenemos configurada la base de datos en Supabase y 
+las vistas clave para:Tiempos de espera y oportunidad asistencial (vw_tiempos_espera_oportunidad).   
+Demografía, cobertura hospitalaria y diagnósticos (vw_analitica_ips_demografia).   
+Farmacología y entregas de medicamentos (vw_farmacologia_entregas).   
+Estacionalidad, festivos y demanda temporal (vw_estacionalidad_atenciones).   
+¿Qué es lo que nos falta por cubrir de tu lista inicial?Nos falta estructurar los detalles 
+más finos del bloque financiero y el cruce de utilización por paciente:Analítica Financiera Detallada 
+(Pagos por afiliado, grupo familiar, empresa, ciudad y regional):Qué falta: Aunque ya tenemos los costos básicos 
+en las atenciones y entregas, podemos crear una vista consolidada que relacione los pagos y costos directamente 
+con el grupo familiar y la empresa de la dimensión de personas/demografía (dim_persona / dim_demografia).   
+Promedio de utilización de servicios por paciente (según sexo y edad):Qué falta: Calcular la tasa de uso 
+dividiendo el total de atenciones por paciente único segmentando por rangos etarios y género.💰 Vamos a cerrar con la 
+Vista Financiera y de Utilización:Copia y ejecuta este último script en el SQL Editor de Supabase para dejar lista la
+ vista que consolida costos por afiliado, empresa y municipio:
+ 
+ 
+ 
+ CREATE OR REPLACE VIEW vw_analitica_financiera_detallada AS
+SELECT 
+    h.key_hecho_atencion,
+    h.costo,
+    p.numero_identificacion,
+    p.nombre AS nombre_afiliado,
+    p.grupo_familiar,
+    d.empresa,
+    d.estracto,
+    d.tipo_usuario,
+    d.municipio,
+    d.departamento
+FROM hecho_atencion h
+LEFT JOIN dim_persona p ON h.key_dim_persona = p.key_dim_persona
+LEFT JOIN dim_demografia d ON h.key_dim_demo = d.key_dim_demo;

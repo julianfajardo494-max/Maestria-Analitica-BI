@@ -1,0 +1,299 @@
+aiofiles==23.2.1
+aiohttp==3.9.5
+aiosignal==1.3.1
+alembic==1.13.1
+annotated-types==0.6.0
+anyio @ file:///croot/anyio_1706220167567/work
+apache-airflow==2.8.3
+apache-airflow-providers-common-io==1.3.1
+apache-airflow-providers-common-sql==1.12.0
+apache-airflow-providers-ftp==3.8.0
+apache-airflow-providers-google==10.17.0
+apache-airflow-providers-http==4.10.1
+apache-airflow-providers-imap==3.5.0
+apache-airflow-providers-postgres==5.10.2
+apache-airflow-providers-smtp==1.6.1
+apache-airflow-providers-sqlite==3.7.1
+apispec==6.6.1
+argcomplete==3.3.0
+argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
+argon2-cffi-bindings @ file:///work/ci_py311/argon2-cffi-bindings_1676823553406/work
+asgiref==3.8.1
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+async-lru @ file:///croot/async-lru_1699554519285/work
+attrs @ file:///croot/attrs_1695717823297/work
+Babel @ file:///work/ci_py311/babel_1676825020543/work
+backoff==2.2.1
+beautifulsoup4 @ file:///croot/beautifulsoup4-split_1681493039619/work
+bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
+blinker==1.7.0
+Bottleneck @ file:///croot/bottleneck_1707864210935/work
+Brotli @ file:///work/ci_py311/brotli-split_1676830125088/work
+cachelib==0.9.0
+cachetools==5.3.3
+cattrs==23.2.3
+certifi @ file:///croot/certifi_1707229174982/work/certifi
+cffi @ file:///croot/cffi_1700254295673/work
+chardet==5.2.0
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.1.7
+clickclick==20.10.2
+colorama==0.4.6
+colorlog==4.8.0
+comm @ file:///croot/comm_1709322850197/work
+ConfigUpdater==3.2
+connexion==2.14.2
+cron-descriptor==1.4.3
+croniter==2.0.5
+cryptography==41.0.7
+db-dtypes==1.2.0
+debugpy @ file:///croot/debugpy_1690905042057/work
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+Deprecated==1.2.14
+dill==0.3.8
+dnspython==2.6.1
+docstring_parser==0.16
+docutils==0.21.1
+email-validator==1.3.1
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+fastjsonschema @ file:///work/ci_py311_2/python-fastjsonschema_1679340124475/work
+Flask==2.2.5
+Flask-AppBuilder==4.3.11
+Flask-Babel==2.0.0
+Flask-Caching==2.1.0
+Flask-JWT-Extended==4.6.0
+Flask-Limiter==3.6.0
+Flask-Login==0.6.3
+Flask-Session==0.5.0
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==1.2.1
+frozenlist==1.4.1
+fsspec==2024.3.1
+gcloud-aio-auth==4.2.3
+gcloud-aio-bigquery==7.1.0
+gcloud-aio-storage==9.2.0
+gcsfs==2024.3.1
+google-ads==23.1.0
+google-analytics-admin==0.22.7
+google-api-core==2.18.0
+google-api-python-client==2.126.0
+google-auth==2.29.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.0
+google-cloud-aiplatform==1.48.0
+google-cloud-appengine-logging==1.4.3
+google-cloud-audit-log==0.2.5
+google-cloud-automl==2.13.3
+google-cloud-batch==0.17.18
+google-cloud-bigquery==3.21.0
+google-cloud-bigquery-datatransfer==3.15.2
+google-cloud-bigtable==2.23.1
+google-cloud-build==3.24.0
+google-cloud-compute==1.18.0
+google-cloud-container==2.45.0
+google-cloud-core==2.4.1
+google-cloud-datacatalog==3.19.0
+google-cloud-dataflow-client==0.8.10
+google-cloud-dataform==0.5.9
+google-cloud-dataplex==1.13.0
+google-cloud-dataproc==5.9.3
+google-cloud-dataproc-metastore==1.15.3
+google-cloud-dlp==3.16.0
+google-cloud-kms==2.21.4
+google-cloud-language==2.13.3
+google-cloud-logging==3.10.0
+google-cloud-memcache==1.9.3
+google-cloud-monitoring==2.21.0
+google-cloud-orchestration-airflow==1.12.1
+google-cloud-os-login==2.14.3
+google-cloud-pubsub==2.21.1
+google-cloud-redis==2.15.3
+google-cloud-resource-manager==1.12.3
+google-cloud-run==0.10.5
+google-cloud-secret-manager==2.20.0
+google-cloud-spanner==3.45.0
+google-cloud-speech==2.26.0
+google-cloud-storage==2.16.0
+google-cloud-storage-transfer==1.11.3
+google-cloud-tasks==2.16.3
+google-cloud-texttospeech==2.16.3
+google-cloud-translate==3.15.3
+google-cloud-videointelligence==2.13.3
+google-cloud-vision==3.7.2
+google-cloud-workflows==1.14.3
+google-crc32c==1.5.0
+google-re2==1.1
+google-resumable-media==2.7.0
+googleapis-common-protos==1.63.0
+greenlet @ file:///croot/greenlet_1702059959679/work
+grpc-google-iam-v1==0.13.0
+grpc-interceptor==0.15.4
+grpcio==1.62.2
+grpcio-gcp==0.2.2
+grpcio-status==1.62.2
+gunicorn==22.0.0
+h11==0.14.0
+holidays @ file:///croot/holidays_1689862004457/work
+httpcore==1.0.5
+httplib2==0.22.0
+httpx==0.27.0
+idna @ file:///work/ci_py311/idna_1676822698822/work
+importlib-metadata==7.0.0
+importlib_resources==6.4.0
+inflection==0.5.1
+ipykernel @ file:///croot/ipykernel_1705933831282/work
+ipython @ file:///croot/ipython_1704833016303/work
+ipywidgets @ file:///croot/ipywidgets_1709574692113/work
+itsdangerous==2.2.0
+jedi @ file:///work/ci_py311_2/jedi_1679336495545/work
+Jinja2 @ file:///croot/jinja2_1706733616596/work
+json-merge-patch==0.2
+json5 @ file:///tmp/build/80754af9/json5_1624432770122/work
+jsonschema @ file:///croot/jsonschema_1699041609003/work
+jsonschema-specifications @ file:///croot/jsonschema-specifications_1699032386549/work
+jupyter @ file:///croot/jupyter_1707947101020/work
+jupyter-console @ file:///croot/jupyter_console_1679999630278/work
+jupyter-events @ file:///croot/jupyter_events_1699282461638/work
+jupyter-lsp @ file:///croot/jupyter-lsp-meta_1699978238815/work
+jupyter_client @ file:///croot/jupyter_client_1699455897726/work
+jupyter_core @ file:///croot/jupyter_core_1698937308754/work
+jupyter_server @ file:///croot/jupyter_server_1699466442171/work
+jupyter_server_terminals @ file:///croot/jupyter_server_terminals_1686870725608/work
+jupyterlab @ file:///croot/jupyterlab_1706802623017/work
+jupyterlab-pygments @ file:///tmp/build/80754af9/jupyterlab_pygments_1601490720602/work
+jupyterlab-widgets @ file:///croot/jupyterlab_widgets_1709322880313/work
+jupyterlab_server @ file:///croot/jupyterlab_server_1699555425460/work
+lazy-object-proxy==1.10.0
+limits==3.11.0
+linkify-it-py==2.0.3
+lockfile==0.12.2
+looker-sdk==24.4.0
+Mako==1.3.3
+markdown-it-py==3.0.0
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+marshmallow==3.21.1
+marshmallow-oneofschema==3.1.1
+marshmallow-sqlalchemy==0.26.1
+matplotlib-inline @ file:///work/ci_py311/matplotlib-inline_1676823841154/work
+mdit-py-plugins==0.4.0
+mdurl==0.1.2
+mistune @ file:///work/ci_py311/mistune_1676823683049/work
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+more-itertools==10.2.0
+multidict==6.0.5
+nbclient @ file:///croot/nbclient_1698934205032/work
+nbconvert @ file:///croot/nbconvert_1699022732553/work
+nbformat @ file:///croot/nbformat_1694616755618/work
+nest-asyncio @ file:///croot/nest-asyncio_1708532673751/work
+notebook @ file:///croot/notebook_1708029864779/work
+notebook_shim @ file:///croot/notebook-shim_1699455894279/work
+numexpr @ file:///croot/numexpr_1696515281613/work
+numpy @ file:///croot/numpy_and_numpy_base_1708638617955/work/dist/numpy-1.26.4-cp311-cp311-linux_x86_64.whl#sha256=5f96f274d410a1682519282ae769c877d32fdbf171aa8badec7bf5e1d3a1748a
+oauthlib==3.2.2
+opentelemetry-api==1.24.0
+opentelemetry-exporter-otlp==1.24.0
+opentelemetry-exporter-otlp-proto-common==1.24.0
+opentelemetry-exporter-otlp-proto-grpc==1.24.0
+opentelemetry-exporter-otlp-proto-http==1.24.0
+opentelemetry-proto==1.24.0
+opentelemetry-sdk==1.24.0
+opentelemetry-semantic-conventions==0.45b0
+ordered-set==4.1.0
+overrides @ file:///croot/overrides_1699371140756/work
+packaging @ file:///croot/packaging_1710807400464/work
+pandas==2.1.4
+pandas-gbq==0.22.0
+pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pathspec==0.12.1
+pendulum==3.0.0
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+platformdirs @ file:///croot/platformdirs_1692205439124/work
+pluggy==1.5.0
+ply==3.11
+prison==0.2.1
+prometheus-client @ file:///work/ci_py311_2/prometheus_client_1679340520168/work
+prompt-toolkit @ file:///croot/prompt-toolkit_1704404351921/work
+proto-plus==1.23.0
+protobuf==4.25.3
+psutil @ file:///work/ci_py311_2/psutil_1679337388738/work
+psycopg2 @ file:///croot/psycopg2_1704232443350/work
+psycopg2-binary==2.9.9
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+pyarrow==16.0.0
+pyasn1==0.5.1
+pyasn1-modules==0.3.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic==2.7.0
+pydantic_core==2.18.1
+pydata-google-auth==1.8.2
+Pygments @ file:///croot/pygments_1684279966437/work
+PyJWT==2.8.0
+pyOpenSSL==24.1.0
+pyparsing==3.1.2
+PyQt5==5.15.10
+PyQt5-sip @ file:///croot/pyqt-split_1698769088074/work/pyqt_sip
+PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
+python-daemon==3.0.1
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-json-logger @ file:///croot/python-json-logger_1683823803357/work
+python-nvd3==0.16.0
+python-slugify==8.0.4
+pytz @ file:///croot/pytz_1695131579487/work
+PyYAML @ file:///croot/pyyaml_1698096049011/work
+pyzmq @ file:///croot/pyzmq_1705605076900/work
+qtconsole @ file:///croot/qtconsole_1709231153903/work
+QtPy @ file:///croot/qtpy_1700144840038/work
+referencing @ file:///croot/referencing_1699012038513/work
+requests @ file:///croot/requests_1707355572290/work
+requests-oauthlib==2.0.0
+requests-toolbelt==1.0.0
+rfc3339-validator @ file:///croot/rfc3339-validator_1683077044675/work
+rfc3986-validator @ file:///croot/rfc3986-validator_1683058983515/work
+rich==13.7.1
+rich-argparse==1.4.0
+rpds-py @ file:///croot/rpds-py_1698945930462/work
+rsa==4.9
+Send2Trash @ file:///croot/send2trash_1699371139552/work
+setproctitle==1.3.3
+shapely==2.0.4
+sip @ file:///croot/sip_1698675935381/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sniffio @ file:///croot/sniffio_1705431295498/work
+soupsieve @ file:///croot/soupsieve_1696347547217/work
+SQLAlchemy==1.4.52
+sqlalchemy-bigquery==1.11.0
+SQLAlchemy-JSONField==1.0.2
+sqlalchemy-spanner==1.7.0
+SQLAlchemy-Utils==0.41.2
+sqlparse==0.5.0
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+tabulate==0.9.0
+tenacity==8.2.3
+termcolor==2.4.0
+terminado @ file:///work/ci_py311/terminado_1677696151350/work
+text-unidecode==1.3
+time-machine==2.14.1
+tinycss2 @ file:///work/ci_py311/tinycss2_1676823757641/work
+tornado @ file:///croot/tornado_1696936946304/work
+traitlets @ file:///work/ci_py311/traitlets_1676823305040/work
+typing_extensions @ file:///croot/typing_extensions_1705599297034/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+uc-micro-py==1.0.3
+unicodecsv==0.14.1
+universal-pathlib==0.1.4
+uritemplate==4.1.1
+urllib3 @ file:///croot/urllib3_1707770551213/work
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+webencodings==0.5.1
+websocket-client @ file:///work/ci_py311/websocket-client_1676824890004/work
+Werkzeug==2.2.3
+widgetsnbextension @ file:///croot/widgetsnbextension_1709322880396/work
+wrapt==1.16.0
+WTForms==3.1.2
+yarl==1.9.4
+zipp==3.18.1
