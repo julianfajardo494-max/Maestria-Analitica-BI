@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres_dv:
+    image: postgres:17-alpine
+    container_name: postgres_datavault_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: retailnova_dv
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./datos_taller3:/taller_dv
+      - pgdata_dv:/var/lib/postgresql/data
+    networks:
+      - dv_net
+
+  pgadmin_dv:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_datavault_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5055:80"
+    volumes:
+      - pgadmin_dv_data:/var/lib/pgadmin
+    networks:
+      - dv_net
+    depends_on:
+      - postgres_dv
+
+networks:
+  dv_net:
+    driver: bridge
+
+volumes:
+  pgdata_dv:
+  pgadmin_dv_data:
